@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Details</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Ubuntu&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+        }
+
+        body{
+            font-family: 'Montserrat', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        nav{
+            width: 100%;
+            height: 15vh;
+
+            background-color: #8D8E7B;
+
+            display: flex;
+            justify-content: center;
+            line-height: 15vh;
+            font-size: 25px;
+        }
+
+        #bodyContent{
+            width: 100%;
+            height: 70vh;
+
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+
+            padding: 10px;
+            
+        }
+
+        .divBody{
+            width: 20%;
+            height: 15vh;
+            border: 5px solid black;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        a{
+            color: black;
+        }
+        
+        .Add{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Contact List</h1>
+    </nav>
+
+    <div id="bodyContent">
+        <% contacts.forEach((contact, index) => { %>
+            <div class="divBody">
+                <h2><%= contact.name %></h2>
+                <br>
+                <a href="/edit/<%= index %>">Edit</a>
+                <a href="/view/<%= index %>">View</a>
+                <a href="/delete/<%= index %>">Delete</a>
+            </div>
+        <% }); %>
+        <a class="Add" href="/add"><h2>Add Contact</h2></a>
+    </div>
+</body>
+</html>
